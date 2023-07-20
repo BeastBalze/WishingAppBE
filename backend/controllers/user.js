@@ -157,7 +157,7 @@ exports.forgotPassword = async (req, res) => {
         };
         const token = user.getResetPasswordToken();
         await user.save();
-        const resetUrl = `https://yourwishingapp.onrender.com/password/reset/${token}`;
+        const resetUrl = `https://yourwishingapp.onrender.com/#/password/reset/${token}`;
         const msg = `Click the link below to reset your password\nThis link is valid for 10 minutes\n\n${resetUrl}`;
 
         try {
