@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const path = require("path");
+// const path = require("path");
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const cron = require('node-cron');
@@ -26,9 +26,9 @@ cron.schedule('0 0 * * *', () => {
     mainfunc();
 });
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+// });
 module.exports = app;
