@@ -24,6 +24,8 @@ app.use("/api/v1", wish);
 
 cron.schedule('0 0 * * *', () => {
     mainfunc();
+}, {
+    timezone: "Asia/Kolkata"
 });
 
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
