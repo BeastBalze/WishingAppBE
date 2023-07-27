@@ -22,15 +22,17 @@ app.use(cors());
 app.use("/api/v1", user);
 app.use("/api/v1", wish);
 
-cron.schedule('0 0 * * *', () => {
-    mainfunc();
-}, {
-    timezone: "Asia/Kolkata"
-});
-
-// app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+// cron.schedule('0 0 * * *', () => {
+//     mainfunc();
+// }, {
+//     timezone: "Asia/Kolkata"
 // });
+
+setInterval(() => {
+    const d = new Date();
+    let hour = d.getHours();
+    let minutes = d.getMinutes();
+    if(hour === 0 && minutes === 0) mainfunc();
+}, 1000 * 60);
+
 module.exports = app;
