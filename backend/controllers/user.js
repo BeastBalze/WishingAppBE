@@ -132,9 +132,11 @@ exports.getAllWish = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).populate("wishingList");
         const list = user.wishingList;
+        const name = useer.name;
         res.status(200).json({
             success: true,
-            list
+            list,
+            name
         })
     } catch (e) {
         res.status(500).json({
